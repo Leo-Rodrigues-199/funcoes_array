@@ -1,0 +1,24 @@
+[
+  {
+    "name": "push",
+    "desc": "adiciona um ou mais elementos ao final de um array e retorna o novo comprimento desse array.",
+    "params": ["Adicione uma entrada por vez"]
+  },
+  {
+    "name": "pop",
+    "desc": "remove o último elemento de um array e retorna aquele elemento.",
+    "params": ["Essa função não necessita de parâmentro"],
+    "disable": true
+  },
+  {
+    "name": "unshift",
+    "desc": "adiciona um ou mais elementos no início de um array e retorna o número de elementos.",
+    "params": ["Adicione uma entrada por vez"]
+  },
+  {
+    "name": "shift",
+    "desc": "remove o primeiro elemento de um array e retorna esse elemento. Este método muda o tamanho do array.",
+    "params": ["Essa função não necessita de parâmentro"],
+    "disable": true
+  }
+]

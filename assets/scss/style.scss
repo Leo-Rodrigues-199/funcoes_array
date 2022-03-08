@@ -1,0 +1,87 @@
+html {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  max-width: 960px;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+h1.container {
+  font-size: 1.5rem;
+  display: block;
+  margin: 1.5rem auto 2rem auto;
+}
+
+.Select {
+  display: block;
+  select {
+    border: 1px dotted #5a5a5a;
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.Function {
+  margin-bottom: 1rem;
+
+  .wrapper {
+    border: 1px dotted #5a5a5a;
+    display: inline-block;
+    padding: 2rem;
+    display: grid;
+
+    > .title {
+      font-weight: bold;
+      margin-bottom: 0.6rem;
+      &:after {
+        content: "";
+        display: block;
+        background: #ff6a00;
+        height: 2px;
+        width: 20px;
+        margin-top: 5px;
+      }
+    }
+    > .desc {
+      margin-bottom: 1rem;
+      max-width: 600px;
+      line-height: 1.5;
+    }
+    > span {
+      margin-bottom: 2rem;
+      display: block;
+      h4 {
+        display: inline-block;
+        font-weight: 500;
+        margin-right: 0.5rem;
+      }
+    }
+    > .inputs {
+      display: grid;
+      grid-template-columns: minmax(300px, auto) 200px;
+      grid-auto-columns: auto;
+      input {
+        padding: 0.8rem 1.5rem;
+      }
+      .btns {
+        display: flex;
+        .btn {
+          cursor: pointer;
+          flex: 1;
+          color: white;
+          font-weight: 500;
+          border: none;
+          &.exe {
+            background: #28a745;
+          }
+          &.res {
+            background: #ffc107;
+          }
+        }
+      }
+    }
+  }
+}

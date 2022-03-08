@@ -1,0 +1,85 @@
+html {
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  max-width: 960px;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+h1.container {
+  font-size: 1.5rem;
+  display: block;
+  margin: 1.5rem auto 2rem auto;
+}
+
+.Select {
+  display: block;
+}
+.Select select {
+  border: 1px dotted #5a5a5a;
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.Function {
+  margin-bottom: 1rem;
+}
+.Function .wrapper {
+  border: 1px dotted #5a5a5a;
+  display: inline-block;
+  padding: 2rem;
+  display: grid;
+}
+.Function .wrapper > .title {
+  font-weight: bold;
+  margin-bottom: 0.6rem;
+}
+.Function .wrapper > .title:after {
+  content: "";
+  display: block;
+  background: #ff6a00;
+  height: 2px;
+  width: 20px;
+  margin-top: 5px;
+}
+.Function .wrapper > .desc {
+  margin-bottom: 1rem;
+  max-width: 600px;
+  line-height: 1.5;
+}
+.Function .wrapper > span {
+  margin-bottom: 2rem;
+  display: block;
+}
+.Function .wrapper > span h4 {
+  display: inline-block;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+.Function .wrapper > .inputs {
+  display: grid;
+  grid-template-columns: minmax(300px, auto) 200px;
+  grid-auto-columns: auto;
+}
+.Function .wrapper > .inputs input {
+  padding: 0.8rem 1.5rem;
+}
+.Function .wrapper > .inputs .btns {
+  display: flex;
+}
+.Function .wrapper > .inputs .btns .btn {
+  cursor: pointer;
+  flex: 1;
+  color: white;
+  font-weight: 500;
+  border: none;
+}
+.Function .wrapper > .inputs .btns .btn.exe {
+  background: #28a745;
+}
+.Function .wrapper > .inputs .btns .btn.res {
+  background: #ffc107;
+}/*# sourceMappingURL=style.css.map */

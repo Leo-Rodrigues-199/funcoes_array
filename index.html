@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Principais funções de Array</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="container">As principais funções de Array</h1>
+      <section class="Select">
+        <div class="container">
+          <select v-model="selected">
+            <option disabled value="">Selecione um método</option>
+            <option :value="item.name" v-for="(item) of info">
+              {{item.name | firstLetterUp}} -- {{item.desc}}
+            </option>
+          </select>
+        </div>
+      </section>
+
+      <section
+        class="Function"
+        :class="item.name"
+        v-for="(item) of info"
+        v-if="item.name === selected"
+      >
+        <div class="container">
+          <div class="wrapper">
+            <h2 class="title">Método {{item.name}}</h2>
+            <p class="desc">O método {{item.name}}() {{item.desc}}</p>
+            <span
+              ><h4>Array:</h4>
+              {{baseArr}}</span
+            >
+            <span v-if="string"
+              ><h4>String:</h4>
+              {{string}}</span
+            >
+            <div class="inputs">
+              <input
+                type="text"
+                v-model="input"
+                :placeholder="item.disable? 'Essa função não necessita de parâmentro' : 'Adicione uma entrada por vez' "
+                :disabled="item.disable"
+              />
+              <div class="btns">
+                <button @click="baseFunction(input,item.name)" class="btn exe">
+                  Executar
+                </button>
+                <button @click="reset" v-if="btnReset" class="btn res">
+                  Resetar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          input: "",
+          baseArr: ["gato", "cachorro", "papagaio"],
+          selected: "",
+          btnReset: false,
+          string: "",
+          info: null,
+        },
+
+        methods: {
+          fetchData() {
+            fetch("assets/data.json")
+              .then((json) => json.json())
+              .then((data) => {
+                this.info = data;
+              });
+          },
+          baseFunction: function (input, funcName) {
+            this.baseArr[funcName](input);
+            this.input = "";
+            console.log(this.selected);
+            if (this.baseArr.length === 0 || this.baseArr.length > 3) {
+              this.btnReset = true;
+            }
+          },
+          reset: function () {
+            this.baseArr = ["gato", "cachorro", "papagaio"];
+            this.btnReset = false;
+          },
+        },
+
+        created: function () {
+          this.fetchData();
+        },
+
+        mounted() {},
+
+        filters: {
+          firstLetterUp: function (input) {
+            return input.charAt(0).toUpperCase() + input.slice(1);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
