@@ -49,8 +49,8 @@
               ><h4>Retorno:</h4>
               {{returnArr}}</span
             >
-            <div class="inputs">
-              <div v-if="!item.disable">
+            <div class="control">
+              <div v-if="!item.disable" class="input">
                 <input
                   type="text"
                   v-for="(input,index) of item.params"
@@ -58,9 +58,9 @@
                   v-model="params[index]"
                 />
               </div>
-              <div v-else>
+              <div v-else class="input">
                 <input
-                  placeholder="Esse método não necessita de parametro"
+                  placeholder="Esse método não necessita de parâmetro"
                   disabled
                 />
               </div>

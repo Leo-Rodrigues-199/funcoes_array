@@ -59,27 +59,27 @@ h1.container {
   font-weight: 500;
   margin-right: 0.5rem;
 }
-.Function .wrapper > .inputs {
+.Function .wrapper > .control .input {
   display: grid;
-  grid-template-columns: minmax(300px, auto) 200px;
-  grid-auto-columns: auto;
 }
-.Function .wrapper > .inputs input {
+.Function .wrapper > .control .input input {
   padding: 0.8rem 1.5rem;
+  margin-bottom: 0.5rem;
 }
-.Function .wrapper > .inputs .btns {
+.Function .wrapper > .control .btns {
   display: flex;
 }
-.Function .wrapper > .inputs .btns .btn {
+.Function .wrapper > .control .btns .btn {
   cursor: pointer;
   flex: 1;
   color: white;
   font-weight: 500;
   border: none;
+  padding: 0.8rem;
 }
-.Function .wrapper > .inputs .btns .btn.exe {
+.Function .wrapper > .control .btns .btn.exe {
   background: #28a745;
 }
-.Function .wrapper > .inputs .btns .btn.res {
+.Function .wrapper > .control .btns .btn.res {
   background: #ffc107;
 }/*# sourceMappingURL=style.css.map */
