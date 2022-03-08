@@ -20,5 +20,19 @@
     "desc": "remove o primeiro elemento de um array e retorna esse elemento. Este método muda o tamanho do array.",
     "params": ["Essa função não necessita de parâmentro"],
     "disable": true
+  },
+  {
+    "name": "splice",
+    "desc": "altera o conteúdo de uma lista, adicionando novos elementos enquanto remove elementos antigos.",
+    "params": [
+      "Index do objeto desejado",
+      "Quantidade de elementos a ser removido",
+      "Elemento adicionado"
+    ]
+  },
+  {
+    "name": "slice",
+    "desc": "altera o conteúdo de uma lista, adicionando novos elementos enquanto remove elementos antigos.",
+    "params": ["Posição Inicial", "Posição final"]
   }
 ]
