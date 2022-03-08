@@ -21,7 +21,7 @@
       <h1 class="container">As principais funções de Array</h1>
       <section class="Select">
         <div class="container">
-          <select v-model="selected" @click="reset">
+          <select v-model="selected" @change="reset">
             <option disabled value="">Selecione um método</option>
             <option :value="item.name" v-for="(item) of info">
               {{item.name | firstLetterUp}} -- {{item.desc}}
@@ -45,9 +45,11 @@
               {{baseArr}}</span
             >
 
-            <span v-if="returnArr"
+            <span
               ><h4>Retorno:</h4>
-              {{returnArr}}</span
+
+              {{ returnArr === undefined? 'Undefined' :JSON.stringify(returnArr,
+              null, ' ') }}</span
             >
             <div class="control">
               <div v-if="!item.disable" class="input">
@@ -85,7 +87,7 @@
           params: [],
           baseArr: ["gato", "cachorro", "papagaio"],
           selected: "",
-          returnArr: null,
+          returnArr: "---",
           btnReset: false,
           info: null,
         },
@@ -102,7 +104,9 @@
             const retorno = this.baseArr[item.name](
               ...this.params.slice(0, item.params.length)
             );
+            console.log(typeof retorno);
             this.returnArr = retorno;
+
             this.params = [];
             if (this.baseArr.length === 0 || this.baseArr.length > 3) {
               this.btnReset = true;
