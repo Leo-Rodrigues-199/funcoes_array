@@ -21,7 +21,7 @@
       <h1 class="container">As principais funções de Array</h1>
       <section class="Select">
         <div class="container">
-          <select v-model="selected">
+          <select v-model="selected" @click="reset">
             <option disabled value="">Selecione um método</option>
             <option :value="item.name" v-for="(item) of info">
               {{item.name | firstLetterUp}} -- {{item.desc}}
@@ -33,7 +33,7 @@
       <section
         class="Function"
         :class="item.name"
-        v-for="(item) of info"
+        v-for="(item, index) of info"
         v-if="item.name === selected"
       >
         <div class="container">
@@ -44,19 +44,29 @@
               ><h4>Array:</h4>
               {{baseArr}}</span
             >
-            <span v-if="string"
-              ><h4>String:</h4>
-              {{string}}</span
+
+            <span v-if="returnArr"
+              ><h4>Retorno:</h4>
+              {{returnArr}}</span
             >
             <div class="inputs">
-              <input
-                type="text"
-                v-model="input"
-                :placeholder="item.disable? 'Essa função não necessita de parâmentro' : 'Adicione uma entrada por vez' "
-                :disabled="item.disable"
-              />
+              <div v-if="!item.disable">
+                <input
+                  type="text"
+                  v-for="(input,index) of item.params"
+                  :placeholder="input"
+                  v-model="params[index]"
+                />
+              </div>
+              <div v-else>
+                <input
+                  placeholder="Esse método não necessita de parametro"
+                  disabled
+                />
+              </div>
+
               <div class="btns">
-                <button @click="baseFunction(input,item.name)" class="btn exe">
+                <button @click="baseFunction(item)" class="btn exe">
                   Executar
                 </button>
                 <button @click="reset" v-if="btnReset" class="btn res">
@@ -72,11 +82,11 @@
       var app = new Vue({
         el: "#app",
         data: {
-          input: "",
+          params: [],
           baseArr: ["gato", "cachorro", "papagaio"],
           selected: "",
+          returnArr: null,
           btnReset: false,
-          string: "",
           info: null,
         },
 
@@ -88,10 +98,12 @@
                 this.info = data;
               });
           },
-          baseFunction: function (input, funcName) {
-            this.baseArr[funcName](input);
-            this.input = "";
-            console.log(this.selected);
+          baseFunction: function (item) {
+            const retorno = this.baseArr[item.name](
+              ...this.params.slice(0, item.params.length)
+            );
+            this.returnArr = retorno;
+            this.params = [];
             if (this.baseArr.length === 0 || this.baseArr.length > 3) {
               this.btnReset = true;
             }
@@ -99,6 +111,7 @@
           reset: function () {
             this.baseArr = ["gato", "cachorro", "papagaio"];
             this.btnReset = false;
+            this.returnArr = null;
           },
         },
 
