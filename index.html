@@ -22,8 +22,8 @@
         <div class="container">
           <select v-model="selected" @change="reset">
             <option disabled value="">Selecione um método</option>
-            <option :value="item.name" v-for="(item) of info">
-              {{item.name | firstLetterUp}} -- {{item.desc}}
+            <option :value="item.name" v-for="(item) of data">
+              {{item.name | upperCase}} -- {{item.desc }}
             </option>
           </select>
         </div>
@@ -51,7 +51,7 @@
       <section
         class="Function"
         :class="item.name"
-        v-for="(item, index) of info"
+        v-for="(item, index) of data"
         v-if="item.name === selected"
       >
         <div class="container">
@@ -105,9 +105,9 @@
           params: [],
           baseArr: ["gato", "cachorro", "papagaio"],
           selected: "",
-          returnArr: "---",
+          returnArr: null,
           btnReset: false,
-          info: null,
+          data: null,
         },
 
         methods: {
@@ -115,7 +115,7 @@
             fetch("assets/data.json")
               .then((json) => json.json())
               .then((data) => {
-                this.info = data;
+                this.data = data.sort((a, b) => (a.name > b.name ? 0 : -1));
               });
           },
           baseFunction: function (item) {
@@ -144,8 +144,8 @@
         mounted() {},
 
         filters: {
-          firstLetterUp: function (input) {
-            return input.charAt(0).toUpperCase() + input.slice(1);
+          upperCase: function (input) {
+            return input.toUpperCase();
           },
         },
       });
