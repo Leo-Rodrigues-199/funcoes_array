@@ -23,14 +23,14 @@ html {
   margin-top: 0.6rem;
 }
 
-.Select {
-  display: block;
-}
 .Select select {
+  max-width: 100%;
   border: 1px dotted #5a5a5a;
-  width: 100%;
   padding: 0.8rem 1.5rem;
   margin-bottom: 2rem;
+}
+.Select select option {
+  white-space: normal;
 }
 
 .Function,
@@ -83,6 +83,7 @@ html {
   color: white;
   text-align: center;
   transition: 0.3s;
+  line-height: 1.4;
 }
 .Function .wrapper .link:hover,
 .Intro .wrapper .link:hover {
