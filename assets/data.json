@@ -40,5 +40,46 @@
     "desc": "transpõe os elementos do objeto array no mesmo lugar, mutando o array, e retornando uma referência para o mesmo.",
     "params": ["Essa função não necessita de parâmentro"],
     "disable": true
+  },
+  {
+    "name": "join",
+    "desc": "junta todos os elementos de um array (ou um array-like object) em uma string e retorna esta string.",
+    "params": ["Separador: Ex: Teste - ou _"]
+  },
+  {
+    "name": "concat",
+    "desc": "retorna um novo array contendo todos os arrays ou valores passados como parâmetro.",
+    "params": [
+      "Valor para concatenar",
+      "Valor para concatenar",
+      "...essa função aceita muitas entradas"
+    ]
+  },
+  {
+    "name": "includes",
+    "desc": "determina se um array contém um determinado elemento, retornando true ou false apropriadamente.",
+    "params": [
+      "O elemento a buscar",
+      "A posição no array onde a se iniciará. Por padrão, 0."
+    ]
+  },
+  {
+    "name": "indexOf",
+    "desc": "retorna o primeiro índice em que o elemento pode ser encontrado no array, retorna -1 caso o mesmo não esteja presente.",
+    "params": ["Elemento a ser pesquisado no array"]
+  },
+  {
+    "name": "at",
+    "desc": " recebe um valor inteiro e retorna o item referente ao index dele, permitindo valores positivos ou negativos. Valores negativos contam apartir do último item do array.",
+    "params": ["O index (posição) do elemento do array que será retornado"]
+  },
+  {
+    "name": "fill",
+    "desc": "  preenche todos os valores do array a partir do índice inicial a um índice final com um valor estático.",
+    "params": [
+      "Valor para preencher o array",
+      "Opcional. Índice inicial",
+      "Opcional. Índice final."
+    ]
   }
 ]
