@@ -12,7 +12,7 @@
   },
   {
     "name": "unshift",
-    "desc": "adiciona um ou mais elementos no início de um array e retorna o número de elementos.",
+    "desc": "adiciona um ou mais elementos no início de um array e retorna o número de elementos (propriedade length) atualizado.",
     "params": ["Adicione uma entrada por vez"]
   },
   {
@@ -26,13 +26,19 @@
     "desc": "altera o conteúdo de uma lista, adicionando novos elementos enquanto remove elementos antigos.",
     "params": [
       "Index do objeto desejado",
-      "Quantidade de elementos a ser removido",
-      "Elemento adicionado"
+      "Quantidade de elementos a ser removido a partir do indice",
+      "Adicionar outro elemento"
     ]
   },
   {
     "name": "slice",
-    "desc": "altera o conteúdo de uma lista, adicionando novos elementos enquanto remove elementos antigos.",
+    "desc": "retorna uma cópia de parte de um array a partir de um subarray criado entre as posições início e fim (fim não é necessário) de um array original.",
     "params": ["Posição Inicial", "Posição final"]
+  },
+  {
+    "name": "reverse",
+    "desc": "transpõe os elementos do objeto array no mesmo lugar, mutando o array, e retornando uma referência para o mesmo.",
+    "params": ["Essa função não necessita de parâmentro"],
+    "disable": true
   }
 ]

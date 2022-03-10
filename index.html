@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Principais funções de Array</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
       rel="stylesheet"
@@ -18,7 +16,8 @@
   </head>
   <body>
     <div id="app">
-      <h1 class="container">As principais funções de Array</h1>
+      <h1 class="Title container">As principais funções de Array</h1>
+
       <section class="Select">
         <div class="container">
           <select v-model="selected" @change="reset">
@@ -27,6 +26,24 @@
               {{item.name | firstLetterUp}} -- {{item.desc}}
             </option>
           </select>
+        </div>
+      </section>
+
+      <section class="Intro" v-if="!selected">
+        <div class="container">
+          <div class="wrapper">
+            <h2 class="title">Introdução</h2>
+            <p class="desc">
+              A ideia desse app é mostrar o funcionamento dos principais métodos
+              de array e seus retornos em tempo real.
+            </p>
+            <a
+              href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array"
+              class="link"
+              target="_blank"
+              >Documentação usada como base - mozilla.org</a
+            >
+          </div>
         </div>
       </section>
 
